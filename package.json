@@ -20,8 +20,11 @@
     "typescript": "^4.1.5"
   },
   "scripts": {
+    "prestart": "npm run gen",
     "start": "react-scripts start",
+    "prebuild": "npm run gen",
     "build": "react-scripts build",
+    "pretest": "npm run gen",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "gen": "graphql-codegen --config codegen.yml",
