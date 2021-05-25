@@ -9,8 +9,8 @@
     "start:host": "func start",
     "start": "npm-run-all --parallel start:host watch gen:watch",
     "test": "echo \"No tests yet...\"",
-    "gen": "cd .. && graphql-codegen --config codegen.yml",
-    "gen:watch": "cd .. && graphql-codegen --config codegen.yml --watch"
+    "gen": "cd .. && npm run gen",
+    "gen:watch": "cd .. && npm run gen:watch"
   },
   "description": "",
   "devDependencies": {
