@@ -1,22 +1,22 @@
 overwrite: true
-schema: "./graphql/schema.graphql"
-documents: "../src/operations/*.graphql"
+schema: "./api/graphql/schema.graphql"
+documents: "./src/operations/*.graphql"
 generates:
-  graphql/generated.ts:
+  ./api/graphql/generated.ts:
     config:
-      contextType: "./apolloContext#ApolloContext"
+      contextType: "./api/graphql/apolloContext#ApolloContext"
       mappers:
-        Question: ./data/types#QuestionModel
-        Game: ./data/types#GameModel
-        Player: ./data/types#UserModel
+        Question: ./api/graphql/data/types#QuestionModel
+        Game: ./api/graphql/data/types#GameModel
+        Player: ./api/graphql/data/types#UserModel
     plugins:
       - "typescript"
       - "typescript-resolvers"
-  ./graphql.schema.json:
+  ./api/graphql.schema.json:
     plugins:
       - "introspection"
 
-  ../src/generated.tsx:
+  ./src/generated.tsx:
     config:
       withHooks: true
       withHOC: false
