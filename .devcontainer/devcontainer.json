@@ -1,17 +1,19 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.158.0/containers/azure-static-web-apps
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.179.0/containers/docker-from-docker-compose
 {
-  "name": "Web stuff",
-  "dockerFile": "Dockerfile",
-  "forwardPorts": [7071, 5500],
+  "name": "Docker from Docker Compose",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+
+  // Use this environment variable if you need to bind mount your local source code into a new container.
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
 
   // Set *default* container specific settings.json values on container create.
   "settings": {
-    "terminal.integrated.profiles.linux": {
-      "bash": {
-        "path": "/bin/bash"
-      }
-    }
+    "terminal.integrated.shell.linux": "/bin/bash"
   },
 
   // Add the IDs of extensions you want installed when the container is created.
@@ -32,5 +34,7 @@
   "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install && npm install && cd api && npm install",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+
+  "forwardPorts": [4280, 8081, 10251, 10253, 10254]
 }
